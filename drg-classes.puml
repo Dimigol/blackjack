@@ -1,0 +1,44 @@
+@startuml drg-classes
+
+class Carta{
+    - naipe: Naipe
+    - valor: Valor
+}
+
+class Jogador{
+    - nome:String
+    - deck:Deck
+    +somaCartas():int
+    +getDeck():Deck
+}
+
+class Baralho{
+    +embaralha()
+    +pegaDeCima():Carta
+    +insereEmbaixo(Carta carta)
+}
+
+class Deck{
+    +pegaDeCima():Carta
+    +insereEmbaixo(Carta carta)
+    +posicionaNoInicio()
+    +olhaProxima():Carta
+    +embaralha()
+}
+
+class Naipe{
+    OUROS,PAUS,ESPADAS,COPAS
+}
+
+class Valor{
+    AS,DOIS,TRES,QUATRO,CINCO,SEIS,SETE,OITO,NOVE,DEZ,VALETE,DAMA,REI
+}
+
+Baralho "1" --> "1" Deck
+Jogador "1 "--> "1 "Deck
+Deck "1" --> "*" Carta
+
+remove Naipe
+remove Valor
+
+@enduml
