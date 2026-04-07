@@ -1,5 +1,8 @@
 package com.bcopstein;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Jogador {
     private final String nome;
     private final Deck deck;
@@ -20,8 +23,16 @@ public class Jogador {
         return soma;
     }
 
-    public Deck getDeck() {
-        return deck;
+    public void recebeCarta(Carta carta) {
+        deck.insereEmbaixo(carta);
+    }
+
+    public int pontuacao() {
+        return somaCartas();
+    }
+
+    public List<Carta> cartas() {
+        return Collections.unmodifiableList(deck.copiaCartas());
     }
 
     public String getNome() {
